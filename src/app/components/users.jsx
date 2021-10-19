@@ -6,7 +6,7 @@ import api from "../api";
 import GroupList from "./groupList";
 import SearchStatus from "./searchStatus";
 import _ from "lodash";
-import UserTable from "./usersTable";
+import UsersTable from "./usersTable";
 
 const Users = ({ users: allUsers, ...rest }) => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -70,7 +70,7 @@ const Users = ({ users: allUsers, ...rest }) => {
             <div className="d-flex flex-column">
                 <SearchStatus length={count} />
                 {count > 0 && (
-                    <UserTable
+                    <UsersTable
                         users={usersCrop}
                         onSort={handleSort}
                         selectedSort={sortBy}
