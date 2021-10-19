@@ -4,7 +4,6 @@ import NavBar from "./components/navBar";
 import Main from "./components/main";
 import Login from "./components/login";
 import UsersPage from "./components/usersPage";
-import Page from "./components/page";
 
 function App() {
     return (
@@ -13,14 +12,15 @@ function App() {
             <Switch>
                 <Route path="/" exact component={Main} />
                 <Route path="/login" component={Login} />
-                <Route
+                {/* <Route
                     path="/users/:userId"
                     render={(props) => <Page {...props} />}
                 />
                 <Route
                     path="/users"
                     render={(props) => <UsersPage {...props} />}
-                />
+                /> */}
+                <Route path="/users/:userId?" component={UsersPage} />
             </Switch>
         </div>
     );
