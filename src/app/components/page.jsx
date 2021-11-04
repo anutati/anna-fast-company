@@ -17,10 +17,10 @@ const Page = ({ id }) => {
     if (user) {
         return (
             <>
-                <h2>{user.name}</h2>
+                <h1>{user.name}</h1>
                 <h2>Профессия: {user.profession.name}</h2>
                 <QualitiesList qualities={user.qualities} />
-                <h2>CompletedMeetings: {user.completedMeetings}</h2>
+                <p>CompletedMeetings: {user.completedMeetings}</p>
                 <h2>Rate: {user.rate}</h2>
                 <button
                     onClick={() => {
