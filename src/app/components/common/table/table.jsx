@@ -3,11 +3,15 @@ import TableHeader from "./tableHeader";
 import TableBody from "./tableBody.";
 import PropTypes from "prop-types";
 
-const Table = ({ onSort, selectedSort, columns, data }) => {
+const Table = ({ onSort, selectedSort, columns, data, children }) => {
     return (
         <table className="table">
-            <TableHeader {...{ onSort, selectedSort, columns }} />
-            <TableBody {...{ columns, data }} />
+            {children || (
+                <>
+                    <TableHeader {...{ onSort, selectedSort, columns }} />
+                    <TableBody {...{ columns, data }} />
+                </>
+            )}
         </table>
     );
 };
@@ -17,7 +21,8 @@ Table.propTypes = {
     selectedSort: PropTypes.object,
     onToggleBookMark: PropTypes.func,
     data: PropTypes.array,
-    columns: PropTypes.object
+    columns: PropTypes.object,
+    children: PropTypes.array
 };
 
 export default Table;
