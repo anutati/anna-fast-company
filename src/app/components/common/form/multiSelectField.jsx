@@ -25,7 +25,7 @@ const MultiSelectField = ({ options, onChange, name, label, value }) => {
                 classNamePrefox="select"
                 onChange={handleChange}
                 name={name}
-                value={value}
+                defaultValue={value}
             />
         </div>
     );

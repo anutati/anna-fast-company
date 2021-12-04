@@ -4,7 +4,7 @@ import NavBar from "./components/ui/navBar";
 import Main from "./layouts/main";
 import Login from "./layouts/login";
 import Users from "./layouts/users";
-import UserPageEdit from "./components/page/userPageEdit";
+import UserPageEdit from "./components/page/userPageEdit/userPageEdit";
 
 function App() {
     return (
