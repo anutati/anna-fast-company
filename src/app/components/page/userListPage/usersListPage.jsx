@@ -8,6 +8,7 @@ import SearchStatus from "../../ui/searchStatus";
 import _ from "lodash";
 import UsersTable from "../../ui/usersTable";
 import SearchUser from "../../ui/searchUser";
+import { useUser } from "../../../hooks/useUsers";
 
 const UsersListPage = ({ users: allUsers, ...rest }) => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -15,32 +16,29 @@ const UsersListPage = ({ users: allUsers, ...rest }) => {
     const [selectedProf, setSelectedProf] = useState();
     const [sortBy, setSortBy] = useState({ path: "name", order: "asc" });
     const pageSize = 4;
-    const [users, setUsers] = useState();
+    const { users } = useUser();
     const [searchedUser, setSearchedUser] = useState();
-
+    console.log(users);
     const handleSearch = (event) => {
         setSelectedProf("");
         setSearchedUser(event.target.value);
         console.log(searchedUser);
     };
 
-    useEffect(() => {
-        api.users.fetchAll().then((data) => setUsers(data));
-    }, []);
-
     const handleDelete = (userId) => {
-        setUsers(users.filter((user) => user._id !== userId));
+        // setUsers(users.filter((user) => user._id !== userId));
+        console.log(userId);
     };
 
     const handleToggleBookMark = (id) => {
-        setUsers(
-            users.map((user) => {
-                if (user._id === id) {
-                    return { ...user, bookmark: !user.bookmark };
-                }
-                return user;
-            })
-        );
+        const newArray = users.map((user) => {
+            if (user._id === id) {
+                return { ...user, bookmark: !user.bookmark };
+            }
+            return user;
+        });
+
+        console.log(newArray);
     };
 
     useEffect(() => {
